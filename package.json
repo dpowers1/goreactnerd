@@ -1,0 +1,8 @@
+{
+  "name": "goreactnerd",
+  "version": "1.0.0",
+  "description": "Cool stuff",
+  "main": "index.js",
+  "author": "Domenick Powers",
+  "license": "MIT"
+}
