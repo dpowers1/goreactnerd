@@ -4,5 +4,8 @@
   "description": "Cool stuff",
   "main": "index.js",
   "author": "Domenick Powers",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "vite": "^5.2.11"
+  }
 }
