@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard";
 function ProductGrid() {
   const products = [];
 
-  fetch("http://localhost:8080/products")
+  fetch("https://dummyjson.com/products")
     .then((response) => response.json())
     .then((data) => {
       products.push(data);
