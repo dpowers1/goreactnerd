@@ -1,21 +1,24 @@
+import "./ProductGrid.css";
+
 import ProductCard from "./ProductCard";
+import { useState, useEffect } from "react";
 
 function ProductGrid() {
-  const products = [];
+  const [products, setProducts] = useState([]);
 
-  fetch("https://dummyjson.com/products")
-    .then((response) => response.json())
-    .then((data) => {
-      products.push(data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  useEffect(() => {
+    fetch("https://dummyjson.com/products")
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data.products);
+      });
+  }, []);
 
-  console.log(products);
   return (
     <>
-      <ProductCard />
+      {products.map((product, index) => {
+        return <ProductCard key={index} product={product} />;
+      })}
     </>
   );
 }
