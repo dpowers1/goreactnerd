@@ -17,7 +17,7 @@ function ProductGrid() {
   return (
     <>
       <div className="container text-center">
-        <div className="row row-cols-3">
+        <div className="row row-cols-3 align-items-start">
           {products.map((product, index) => {
             return <ProductCard key={index} product={product} />;
           })}
