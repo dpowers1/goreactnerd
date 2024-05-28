@@ -1,5 +1,6 @@
 interface Product {
   id: number;
+  images: string[];
   title: string;
   price: number;
 }
@@ -9,10 +10,9 @@ interface Props {
 }
 
 function ProductCard(props: Props) {
-  console.log(props);
   return (
     <>
-      <div className="image"> </div>
+      <img src={props.product.images[0]} className="image" />
       <div className="title">{props.product.title}</div>
       <div className="price">{props.product.price}</div>
     </>
