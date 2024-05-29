@@ -12,12 +12,53 @@ interface Props {
 // TODO:
 //  - Add arrows to click through images on card
 //  - Add popout modal
-function ProductCard(props: Props) {
+function ProductCard({ product }: Props) {
   return (
-    <div className="col-md-4 card">
-      <img src={props.product.images[0]} className="image" />
-      <div className="title">{props.product.title}</div>
-      <div className="price">{props.product.price}</div>
+    <div className="col w-33 mb-3 h-100 card">
+      <div id="imageCarousel" className="carousel slide">
+        <div className="carousel-inner">
+          {product.images.map((image, index) => (
+            <div
+              className={index === 0 ? "carousel-item active" : "carousel-item"}
+              key={index}
+            >
+              <img
+                src={image}
+                className="d-block w-100 card-image-top"
+                alt="image of product"
+                height="300px"
+              />
+            </div>
+          ))}
+        </div>
+
+        <button
+          className="carousel-control-prev"
+          type="button"
+          data-bs-target="#imageCarousel"
+          data-bs-slide="prev"
+        >
+          <span
+            className="carousel-control-prev-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Previous</span>
+        </button>
+        <button
+          className="carousel-control-next"
+          type="button"
+          data-bs-target="#imageCarousel"
+          data-bs-slide="next"
+        >
+          <span
+            className="carousel-control-next-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div className="card-title">{product.title}</div>
+      <div className="price">{product.price}</div>
     </div>
   );
 }
