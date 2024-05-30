@@ -35,22 +35,24 @@ function ProductCarousel({ images }: Props) {
 
   return (
     <div id="imageCarousel" className="carousel slide" data-bs-ride="carousel">
-      <div className="carousel-indicators">
-        {images.map((image, index) => {
-          return (
-            <button
-              type="button"
-              key={index + image}
-              data-bs-target="#imageCarousel"
-              data-bs-slide-to={index}
-              className={index === activeIndex ? "active" : ""}
-              aria-current={index === activeIndex}
-              aria-label={`Slide ${index + 1}`}
-              onClick={(event) => handleIndicatorClick(event, index)}
-            ></button>
-          );
-        })}
-      </div>
+      {images.length > 1 && (
+        <div className="carousel-indicators">
+          {images.map((image, index) => {
+            return (
+              <button
+                type="button"
+                key={index + image}
+                data-bs-target="#imageCarousel"
+                data-bs-slide-to={index}
+                className={index === activeIndex ? "active" : ""}
+                aria-current={index === activeIndex}
+                aria-label={`Slide ${index + 1}`}
+                onClick={(event) => handleIndicatorClick(event, index)}
+              ></button>
+            );
+          })}
+        </div>
+      )}
       <div className="carousel-inner">
         {images.map((image, index) => {
           return (
@@ -70,29 +72,40 @@ function ProductCarousel({ images }: Props) {
           );
         })}
       </div>
-
-      <button
-        className="carousel-control-prev"
-        type="button"
-        data-bs-target="#imageCarousel"
-        data-bs-slide-to={
-          activeIndex === 0 ? images.length - 1 : activeIndex - 1
-        }
-        onClick={handlePrevButtonClick}
-      >
-        Previous
-      </button>
-      <button
-        className="carousel-control-next"
-        type="button"
-        data-bs-target="#imageCarousel"
-        data-bs-slide-to={
-          activeIndex === images.length - 1 ? 0 : activeIndex + 1
-        }
-        onClick={handleNextButtonClick}
-      >
-        Next
-      </button>
+      {images.length > 1 && (
+        <>
+          <button
+            className="carousel-control-prev"
+            type="button"
+            data-bs-target="#imageCarousel"
+            data-bs-slide-to={
+              activeIndex === 0 ? images.length - 1 : activeIndex - 1
+            }
+            onClick={handlePrevButtonClick}
+          >
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button
+            className="carousel-control-next"
+            type="button"
+            data-bs-target="#imageCarousel"
+            data-bs-slide-to={
+              activeIndex === images.length - 1 ? 0 : activeIndex + 1
+            }
+            onClick={handleNextButtonClick}
+          >
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Next</span>
+          </button>
+        </>
+      )}
     </div>
   );
 }
