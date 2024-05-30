@@ -1,5 +1,3 @@
-import "./ProductGrid.css";
-
 import ProductCard from "./ProductCard";
 import { useState, useEffect } from "react";
 
