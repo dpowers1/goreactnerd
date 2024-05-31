@@ -15,7 +15,7 @@ interface Props {
 //  - Add popout modal
 function ProductCard({ product }: Props) {
   return (
-    <div className="col w-33 mb-3 text-bg-secondary card">
+    <div className="col w-33 mb-3 h-100 text-bg-secondary card">
       <ProductCarousel images={product.images} />
 
       <div className="card-title">{product.title}</div>
