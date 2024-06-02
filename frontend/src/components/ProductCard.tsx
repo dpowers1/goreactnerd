@@ -1,11 +1,6 @@
-import ProductCarousel from "./ProductCarousel";
+import Product from "../types";
 
-interface Product {
-  id: number;
-  images: string[];
-  title: string;
-  price: number;
-}
+import ProductCarousel from "./ProductCarousel";
 
 interface Props {
   product: Product;
